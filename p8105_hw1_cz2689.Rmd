@@ -3,4 +3,27 @@ title: "p8105_hw1_cz2689"
 output: github_document
 date: "2022-09-24"
 ---
+```{r}
+library(tidyverse)
+```
+
+---
+
+# Problem 1
+```{r}
+data("penguins", package = "palmerpenguins")
+view (penguins)
+skimr::skim(penguins)
+nrow(penguins)
+ncol(penguins)
+```
+This data set is called penguins, and it includes variables: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. This data set has 344 rows and 8 columns. 
+And the mean flipper length is 200.92 according to the 'skimr' function. 
+
+## Plot the penguins data
+
+```{r}
+ggplot(penguins, aes(x = bill_length_mm , y = flipper_length_mm, colour = species)) + geom_point()
+ggsave("scatter_plot.pdf", height = 6, width = 6)
+```
 
