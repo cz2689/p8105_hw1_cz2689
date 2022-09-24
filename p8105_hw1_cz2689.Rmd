@@ -27,3 +27,39 @@ ggplot(penguins, aes(x = bill_length_mm , y = flipper_length_mm, colour = specie
 ggsave("scatter_plot.pdf", height = 6, width = 6)
 ```
 
+# Problem 2
+
+```{r}
+p2 = tibble(
+  norm = rnorm(10),
+  logi = norm > 0,
+  char = c("a","b", "c", "d", "e", "f", "g", "h", "i", "j"),
+  fact = factor(c("t", "m", "b", "t", "m", "b", "t", "m", "b", "m"))
+  )
+p2
+```
+
+## Taking the mean of each variable
+
+```{r}
+a = pull(p2, var = norm)
+mean(a, var = norm)
+
+b = pull(p2, var = logi)
+mean(b, var = logi)
+
+c = pull(p2, var = char)
+mean(c, var = char)
+
+d = pull(p2, var = fact)
+mean(d, var = fact)
+```
+
+As we can see from the output, we can compute mean for only numeric and logical vector but not for character and factor vector.
+
+
+
+
+
+
+
