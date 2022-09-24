@@ -12,7 +12,7 @@ library(tidyverse)
 # Problem 1
 ```{r}
 data("penguins", package = "palmerpenguins")
-view (penguins)
+view(penguins)
 skimr::skim(penguins)
 nrow(penguins)
 ncol(penguins)
@@ -43,28 +43,29 @@ p2
 
 ```{r}
 a = pull(p2, var = norm)
-mean(a, var = norm)
+mean(a)
 
 b = pull(p2, var = logi)
-mean(b, var = logi)
+mean(b)
 
 c = pull(p2, var = char)
-mean(c, var = char)
+mean(c)
 
 d = pull(p2, var = fact)
-mean(d, var = fact)
+mean(d)
 ```
 
 As we can see from the output, we can compute mean for only numeric and logical vector but not for character and factor vector.
 
 ## As.numeric function
 
-```{r}
+```{r, warning = FALSE, results = 'hide'}
 e = as.numeric(b)
 
 f = as.numeric(c)
 
 g = as.numeric(d)
+
 ```
 
 From the environment, we can see that logical variables were forced into 1 and 0 (standard computer language for true and false), character variables were forced into N/A (make sense), and factor variables were forced into integer 1, 2, 3 (some underlying levels). It explain why we can take the mean of logical variables since this mean represent how many true and false values there are. We can not take the mean of character variables since they are N/A. For factor variables, it does not make sense to take the average. Those level are not what we assigned. It might not reflect the ture levels we want. 
